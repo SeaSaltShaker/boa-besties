@@ -28,6 +28,12 @@ with open(f"{curdir}/input.txt", "r") as fp:
         array = list(map(int, line.split()))
         if(validate(array)):
             count += 1
-        
+        else:
+            for i in range(0, len(array)):
+                popped_element = array.pop(i)
+                if(validate(array)):
+                    count +=1
+                    break
+                array.insert(i, popped_element)
 
 print(count)
